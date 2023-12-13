@@ -1,7 +1,31 @@
 # Network-Traffic-Analysis-Visualization
 
-Utilized Wireshark to monitor and analyze internet connections.
+# Description
+This project is a Python-based tool for visualizing network traffic, integrating functionalities from dpkt, socket, and pygeoip libraries. It processes network traffic data captured in a .pcap file, typically generated using Wireshark, and visualizes the geographical locations of IP addresses in the network traffic.
 
-Employed Python alongside GeoLiteCity data to extract geographical coordinates of IP connections.
+# Features
+Integration with Wireshark: The tool is designed to work with .pcap files, commonly produced by Wireshark, a widely-used network packet analysis tool.
+Network Traffic Parsing: Reads .pcap files to extract and analyze network traffic data.
+Geolocation Mapping: Utilizes pygeoip to map IP addresses to their corresponding geographical locations.
+KML Document Creation: Generates KML (Keyhole Markup Language) files, enabling the visualization of network paths on geographic mapping services like Google Earth.
 
-Created a Google Maps KML file to visualize the global footprint of network traffic, enhancing understanding of network security and data flows.
+# How it Works
+Wireshark Packet Capture: The tool is compatible with packet capture files (.pcap) created by Wireshark.
+Parsing Packet Captures: Opens and reads a .pcap file, extracting source and destination IP addresses from the network packets.
+IP Geolocation: Determines geographical locations (longitude and latitude) for each IP address using the GeoLiteCity.dat database.
+KML Generation: Produces a KML file that plots points and lines representing network traffic flows between source and destination IPs.
+
+# Usage
+Install necessary Python libraries: dpkt, socket, and pygeoip.
+Ensure that your .pcap file (generated from Wireshark) and GeoLiteCity.dat are in the same directory as the script.
+Execute the script to generate KML output, which can be viewed in geographic mapping applications.
+
+# Dependencies
+Python 3.x
+dpkt: For parsing .pcap files.
+socket: For network interactions.
+pygeoip: For converting IP addresses to geographic locations.
+
+# Limitations
+The geolocation accuracy relies on the GeoLiteCity.dat database.
+Encrypted or malformed packets are not processed by the script.
